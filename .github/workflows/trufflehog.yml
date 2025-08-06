@@ -24,4 +24,4 @@ jobs:
 
       - name: Run TruffleHog Scan
         run: |
-          trufflehog git file://. --only-verified
+           trufflehog filesystem . --only-verified --fail
