@@ -11,7 +11,7 @@ on:
 
 jobs:
   trufflehog:
-    name: Run TruffleHog Secret Scan
+    name: Run TruffleHog v3+ Git History Scan
     runs-on: ubuntu-latest
 
     steps:
@@ -19,9 +19,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install TruffleHog
-        run: |
-          pip install trufflehog
+        run: pip install trufflehog
 
-      - name: Run TruffleHog Scan
+      - name: Run TruffleHog on Git History
         run: |
-           trufflehog filesystem . --only-verified --fail
+          trufflehog git --repo . --only-verified --fail
